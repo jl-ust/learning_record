@@ -34,8 +34,7 @@ fn main() {
 }
 ```
 
->
-如下关键字目前有对应其描述的功能。
+>如下关键字目前有对应其描述的功能。
 as- 强制类型转换，或use 和 extern crate包和模块引入语句中的重命名
 break - 立刻退出循环
 const - 定义常量或原生常量指针（constant raw pointer）
