@@ -1,75 +1,40 @@
-## 2.8 泛型和特征
+## 2.6 模式匹配
 
-*   **泛型详解**
+> 模式匹配，这个词，对于非函数语言编程来说，真的还蛮少听到，因为它经常出现在函数式编程里，用于为复杂的类型系统提供一个轻松的解构能力。
+
+### 2.6.1 **match 和 if let**
+
+*   `match` 的通用形式：
 
 ```rust
-fn add<T>(a:T, b:T) -> T {
-    a + b
-}
-
-fn main() {
-    println!("add i8: {}", add(2i8, 3i8));
-    println!("add i32: {}", add(20, 30));
-    println!("add f64: {}", add(1.23, 1.23));
+match target {
+    模式1 => 表达式1,
+    模式2 => {
+        语句1;
+        语句2;
+        表达式2
+    },
+    _ => 表达式3
 }
 ```
 
-*   **结构体中使用泛型**
+*   **使用`match`表达式赋值**
+
+> `match` 本身也是一个表达式，因此可以用它来赋值
+
+**==`match`==== 的匹配必须穷尽所有情况==**
+
+*   `_`通配符
 
 ```rust
-struct Point<T> {
-    x: T,
-    y: T,
+let some_u8_value = 0u8;
+match some_u8_value {
+    1 => println!("one"),
+    3 => println!("three"),
+    5 => println!("five"),
+    7 => println!("seven"),
+    _ => (),
 }
 
-fn main() {
-    let integer = Point { x: 5, y: 10 };
-    let float = Point { x: 1.0, y: 4.0 };
-}
 ```
-
-**==注意事项：==**
-
-**==提前声明：==**
-
-在使用泛型参数之前必需要进行声明 `Point<T>`
-
-**==x 和 y 是相同的类型==**
-
-*   **方法中使用泛型**
-
-```rust
-struct Point<T> {
-    x: T,
-    y: T,
-}
-
-impl<T> Point<T> {
-    fn x(&self) -> &T {
-        &self.x
-    }
-}
-
-fn main() {
-    let p = Point { x: 5, y: 10 };
-
-    println!("p.x = {}", p.x());
-}
-```
-
-*   为具体的泛型类型实现方法
-
-
-
-*   **const 泛型（Rust 1.51 版本引入的重要特性）**
-
-
-
-
-
-
-
-
-
-
 
