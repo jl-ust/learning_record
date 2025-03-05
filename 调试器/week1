@@ -8,7 +8,7 @@
 
 尝试1：
 
-![image.png](https://note.youdao.com/yws/res/9/WEBRESOURCE3d31dda69adeaf038d611de68da24b59)
+sudo service network-manager restart
 
 ==失败==
 
